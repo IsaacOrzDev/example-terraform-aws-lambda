@@ -5,3 +5,4 @@ welcome.zip
 terraform.tfstate
 terraform.tfstate.backup
 output.txt
+default.tfvars
