@@ -44,9 +44,25 @@ variable "lambda_functions" {
       filename      = "welcome"
       source_file   = "../src/welcome.py"
       handler       = "lambda_handler2"
-      route_key     = "GET /welcome"
+      route_key     = "POST /"
       runtime       = "python3.10"
       function_name = "welcome2"
-    }
+    },
+    {
+      filename      = "testing"
+      source_file   = "../src/testing.py"
+      handler       = "lambda_handler"
+      route_key     = "GET /testing"
+      runtime       = "python3.10"
+      function_name = "welcome3"
+    },
+    {
+      filename      = "welcome2"
+      source_file   = "../src/welcome2.js"
+      handler       = "handler"
+      route_key     = "POST /welcome"
+      runtime       = "nodejs18.x"
+      function_name = "welcome4"
+    },
   ]
 }
