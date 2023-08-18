@@ -1,7 +1,7 @@
 .terraform
 .terraform.lock.hcl
 tfplan.out
-welcome.zip
+*.zip
 terraform.tfstate
 terraform.tfstate.backup
 output.txt
