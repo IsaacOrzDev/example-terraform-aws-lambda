@@ -131,7 +131,7 @@ resource "aws_apigatewayv2_integration" "welcome" {
 resource "aws_apigatewayv2_route" "welcome" {
   api_id = aws_apigatewayv2_api.lambda.id
 
-  route_key = "GET /welcome"
+  route_key = var.route_key
   target    = "integrations/${aws_apigatewayv2_integration.welcome.id}"
 }
 

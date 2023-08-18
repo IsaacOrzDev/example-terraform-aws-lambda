@@ -9,3 +9,8 @@ variable "domain_name" {
 variable "sub_domain_name" {
   type = string
 }
+
+variable "route_key" {
+  type = string
+  default = "GET /"
+}
