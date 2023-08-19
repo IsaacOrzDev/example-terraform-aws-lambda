@@ -17,7 +17,7 @@ resource "aws_s3_bucket" "lambda_bucket" {
 
 resource "aws_s3_object" "lambda_s3_object" {
 
-  for_each = { for i, funciton in var.lambda_functions : i => funciton }
+  for_each = local.lambda_functions
 
   bucket = aws_s3_bucket.lambda_bucket.id
 

@@ -22,9 +22,16 @@ resource "aws_route53_record" "api" {
   }
 }
 
-resource "aws_apigatewayv2_api_mapping" "api" {
-  api_id      = aws_apigatewayv2_api.lambda.id
-  domain_name = aws_apigatewayv2_domain_name.api.id
-  stage       = aws_apigatewayv2_stage.lambda.id
+# resource "aws_apigatewayv2_api_mapping" "api" {
+#   # api_id      = aws_apigatewayv2_api.lambda.id
+#   api_id      = aws_api_gateway_rest_api.api.id
+#   domain_name = aws_apigatewayv2_domain_name.api.id
+#   # stage       = aws_apigatewayv2_stage.lambda.id
+#   stage = aws_api_gateway_deployment.api.id
+# }
 
+resource "aws_api_gateway_base_path_mapping" "api" {
+  api_id      = aws_api_gateway_rest_api.api.id
+  stage_name  = aws_api_gateway_deployment.api.stage_name
+  domain_name = aws_apigatewayv2_domain_name.api.id
 }

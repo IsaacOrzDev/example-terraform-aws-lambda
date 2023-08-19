@@ -4,16 +4,12 @@ output "lambda" {
   ]
 }
 
-output "function_name" {
-  description = "Name of the Lambda function."
-  value = [
-    for i, funciton in var.lambda_functions : aws_lambda_function.lambda[i].function_name
-  ]
-}
-
-
 output "base_url" {
   description = "Base URL for API Gateway stage."
 
-  value = aws_apigatewayv2_stage.lambda.invoke_url
+  value = aws_api_gateway_deployment.api.invoke_url
+}
+
+output "custom_url" {
+  value = aws_api_gateway_base_path_mapping.api.domain_name
 }

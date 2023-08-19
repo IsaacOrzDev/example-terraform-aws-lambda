@@ -1,7 +1,7 @@
 
 resource "aws_lambda_function" "lambda" {
 
-  for_each = { for i, funciton in var.lambda_functions : i => funciton }
+  for_each = local.lambda_functions
 
   function_name = each.value.function_name
   # filename         = data.archive_file.zip.output_path
